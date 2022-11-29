@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.nrLabel = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.trackBar = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // nrLabel
@@ -44,48 +44,47 @@
             this.nrLabel.TabIndex = 0;
             this.nrLabel.Text = "numer";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(71, 2);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(34, 19);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "A";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(129, 2);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(33, 19);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "B";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(205, 2);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(234, 45);
-            this.trackBar1.TabIndex = 3;
+            this.trackBar.LargeChange = 1;
+            this.trackBar.Location = new System.Drawing.Point(205, 2);
+            this.trackBar.Maximum = 180;
+            this.trackBar.Minimum = 1;
+            this.trackBar.Name = "trackBar1";
+            this.trackBar.Size = new System.Drawing.Size(301, 45);
+            this.trackBar.TabIndex = 3;
+            this.trackBar.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar.Value = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(72, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(139, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 15);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "label2";
             // 
             // AHPRow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.trackBar);
             this.Controls.Add(this.nrLabel);
             this.Name = "AHPRow";
-            this.Size = new System.Drawing.Size(442, 69);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.Size = new System.Drawing.Size(509, 69);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,8 +93,8 @@
         #endregion
 
         private Label nrLabel;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
-        private TrackBar trackBar1;
+        private TrackBar trackBar;
+        private Label label1;
+        private Label label2;
     }
 }

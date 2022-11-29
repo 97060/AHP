@@ -2,30 +2,22 @@
 {
     public partial class AHPRow : UserControl
     {
-        private int nr;
-        private int kr1;
-        private int kr2;
+        public int Kr1 { get; set; }
+        public int Kr2 { get; set; }
+        public string Name1 => $"Kr-{Kr1}";
+        public string Name2 => $"Kr-{Kr2}";
+        public int Value => trackBar.Value;
+
 
         public AHPRow(int nr, int kr1, int kr2)
         {
-            this.nr = nr;
-            this.kr1 = kr1;
-            this.kr2 = kr2;
+            this.Kr1 = kr1;
+            this.Kr2 = kr2;
             InitializeComponent();
             nrLabel.Text = nr.ToString();
-            checkBox1.Text = $"Kr-{kr1}";
-            checkBox2.Text = $"Kr-{kr2}";
+            label1.Text = Name1;
+            label2.Text = Name2;
 
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            checkBox2.Checked = !checkBox1.Checked;
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            checkBox1.Checked = !checkBox2.Checked;
         }
     }
 }
