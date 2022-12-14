@@ -46,4 +46,9 @@ Wiktor Sebastian</Description>
     </None>
   </ItemGroup>
 
+<ItemGroup>
+    <Content Include="python\**">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+</ItemGroup>
 </Project>
