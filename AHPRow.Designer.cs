@@ -44,17 +44,17 @@
             this.nrLabel.TabIndex = 0;
             this.nrLabel.Text = "numer";
             // 
-            // trackBar1
+            // trackBar
             // 
             this.trackBar.LargeChange = 1;
-            this.trackBar.Location = new System.Drawing.Point(205, 2);
+            this.trackBar.Location = new System.Drawing.Point(133, 0);
             this.trackBar.Maximum = 180;
             this.trackBar.Minimum = 1;
-            this.trackBar.Name = "trackBar1";
+            this.trackBar.Name = "trackBar";
             this.trackBar.Size = new System.Drawing.Size(301, 45);
             this.trackBar.TabIndex = 3;
             this.trackBar.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBar.Value = 1;
+            this.trackBar.Value = 90;
             // 
             // label1
             // 
@@ -68,7 +68,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(139, 3);
+            this.label2.Location = new System.Drawing.Point(450, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 5;
@@ -83,7 +83,7 @@
             this.Controls.Add(this.trackBar);
             this.Controls.Add(this.nrLabel);
             this.Name = "AHPRow";
-            this.Size = new System.Drawing.Size(509, 69);
+            this.Size = new System.Drawing.Size(499, 69);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

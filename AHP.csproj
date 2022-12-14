@@ -40,4 +40,10 @@ Wiktor Sebastian</Description>
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="solve.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

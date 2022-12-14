@@ -25,6 +25,7 @@ namespace AHP
         private void GenerateListButton_Click(object sender, EventArgs e)
         {
             this.SuspendLayout();
+            Clear();
             calculateButton.Enabled = false;
             generateListButton.Enabled = false;
             tableLayoutPanel.Visible = false;
@@ -49,20 +50,13 @@ namespace AHP
         {
             if (!tableLayoutPanel.Created)
                 return;
-
             calculateButton.Enabled = false;
-            SaveFileDialog saveFileDialog = new()
-            {
-                Filter = "Plik tekstowy (*.txt)|*.txt|All files (*.*)|*.*",
-                FileName = "wynik.txt"
-            };
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                Calculate(saveFileDialog.FileName);
-                MessageBox.Show($"Wynik został zapisany w pliku\n{saveFileDialog.FileName}");
-            }
+            Clear();
+            Calculate();
             calculateButton.Enabled = true;
-
+            pictureBox1.Image = Image.FromStream(new MemoryStream(File.ReadAllBytes("wykres.png")));
+            pictureBox2.Image = Image.FromStream(new MemoryStream(File.ReadAllBytes("macierz.png")));
+            textBox1.Text = File.ReadAllText("wynik.txt");
         }
 
         private static double GetRange(int x)
@@ -88,7 +82,7 @@ namespace AHP
             return -1;
         }
 
-        private void Calculate(string savePath)
+        private void Calculate()
         {
             StringBuilder stringBuilder = new("{");
 
@@ -100,7 +94,7 @@ namespace AHP
                     stringBuilder.Append(", ");
             }
             stringBuilder.Append('}');
-            string command = $"solve.py \"{stringBuilder}\" \"{Path.GetFullPath(savePath)}\"";
+            string command = $"solve.py \"{stringBuilder}\"";
 
             var processStartInfo = new ProcessStartInfo
             {
@@ -110,12 +104,24 @@ namespace AHP
                 CreateNoWindow = true
             };
 
-            Process.Start(processStartInfo);
+            var process = Process.Start(processStartInfo);
+            process.WaitForExit();
         }
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox.ShowDialog();
+        }
+
+        private void Clear()
+        {
+            pictureBox1.Image?.Dispose();
+            pictureBox2.Image?.Dispose();
+            pictureBox1.Image = null;
+            pictureBox2.Image = null;
+            textBox1.Text = string.Empty;
+            File.Delete("macierz.png");
+            File.Delete("wykres.png");
         }
     }
 }
