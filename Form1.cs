@@ -77,7 +77,7 @@ namespace AHP
                 return (double)1 /5;
             if (Enumerable.Range(140, 20).Contains(x))
                 return (double)1 / 7;
-            if (Enumerable.Range(160, 20).Contains(x))
+            if (Enumerable.Range(160, 21).Contains(x))
                 return (double)1 / 9;
             return -1;
         }
@@ -86,11 +86,11 @@ namespace AHP
         {
             StringBuilder stringBuilder = new("{");
 
-            for (int i = 0; i < tableLayoutPanel.RowCount - 1; i++)
+            for (int i = 0; i < tableLayoutPanel.RowCount; i++)
             {
                 var row = (AHPRow)tableLayoutPanel.GetControlFromPosition(0, i)!;
                 stringBuilder.AppendFormat("('{0}', '{1}'): {2}", row.Name1, row.Name2, GetRange(row.Value));
-                if (i != tableLayoutPanel.RowCount - 2)
+                if (i != tableLayoutPanel.RowCount - 1)
                     stringBuilder.Append(", ");
             }
             stringBuilder.Append('}');
